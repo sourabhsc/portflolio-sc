@@ -1,4 +1,4 @@
-# www.sourabhsc.wordpress.com
+# www.sourabhsc.herokuapp.com
 
 ----
 
@@ -6,7 +6,7 @@ This is my personal website.
 
 # Screenshots
 <p float="left">
-  <img src="https://raw.githubusercontent.com/crearo/portfolio/master/screenshots/home.png" width="400">
+  <img src="https://raw.githubusercontent.com/sourabhsc/portfolio-sc/portfolio-sc/master/screenshots/home.png" width="400">
 </p>
 
 # Technology
