@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+
+{% block head %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+<link type="text/css" rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<script src='https://cdnjs.cloudflare.com/ajax/libs/typed.js/1.1.1/typed.min.js'></script>
+
+<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename = 'css/home.css') }}">
+<script type="text/javascript" src="{{ url_for('static', filename = 'js/home.js') }}"></script>
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="wrapper fixed-wrapper">
+        <section id="terminal">
+            <div id="terminal-container">
+                <div class="terminal">
+                    <div class="window-title">
+                        <div class="win-buttons">
+                            <a id="close" class="button" href="#"></a>
+                            <a id="min" class="button" href="#"></a>
+                            <a id="max" class="button" href="#"></a>
+                        </div>
+                        <span class="title">sourabhsc-bash</span>
+                    </div>
+                    <div class="message">
+                        <span class='prompt'><span class='user'>sourabhsc</span><span class="at">@</span><span
+                                class="path">/home/sourabhsc/</span>><span class="caret">$</span></span>
+                        <span class="typed"></span>
+                        <form>><span class="caret">$</span>&nbsp;<input type="text" name="response"/></form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div class="wrapper scroll-wrapper">
+        <div class="top-text">
+            <p class="text-title desktop-view">Sourabh</p>
+            <p class="text-title desktop-view">Chauhan</p>
+            <p class="text-title mobile-view">Sourabh Chauhan</p>
+            <div class="social-icons">
+                <a target="_blank" href="https://github.com/sourabhsc">
+                    <img class="title-logo" src="static/images/github.svg">
+                </a>
+                <a target="_blank" href="https://www.linkedin.com/in/sourabh-singh-chauhan/">
+                    <img class="title-logo" src="static/images/linkedin-logo.svg">
+                </a>
+                <a target="_blank" href="https://twitter.com/chauhanssourabh">
+                    <img class="title-logo" src="static/images/twitter.svg">
+                </a>
+                <a target="_blank" href="https://www.instagram.com/sourabhsc/">
+                    <img class="title-logo" src="static/images/insta.svg">
+                </a>
+            </div>
+        </div>
+        <div class="middle-text">
+            <p class="text-content">I am a problem solver and love to jump into various kinds of problems and building, tinkering and hacking with codes to solve them; be it machine learnign problem; coding challenge in hackathons; Physics problems in labs. </p>
+            <p class="text-content">
+                I am currently open to work in Austria. I have worked on building, marketing an EdTech Start up Apni Class and built data reduction pipeline for Hubble Space Telescope data</p>
+
+            <p class="text-content">I studied Astrophysics at <a href="http://cse.umn.edu/mifa">University of Minnesota</a>.
+            </p>
+
+            <p class="text-content">One of my biggest Python projects is <a
+                    href="https://github.com/sourabhsc/NULIRG">NULIRG </a>,
+                a data reduction pipeline. 
+            <p class="text-content">I have also co-authored a few research papers in theoretical, experimental and computational Physics ranging from Astrophysics (2 artciles under review with Astrophysical Journal), Quantum Physics (fundamental density functional theory article), Plasma Physics (Built MATLAB pipeline for data reduction resulting in 2 articles),  (<a
+                        href="https://sourabhsc.wordpress.com/physics-projects/">view paper here</a>).</p>
+
+            <p class="text-content">I'm a student forever, I'm learning to speak German, and
+                <a href="http://sourabhsc.wordppress.com">am a novice blogger</a>, where I write about my work, travel
+                and side projects.</p>
+
+            <p class="text-content">You can find me on <a href="http://in.linkedin.com/in/sourabh-singh-chauhan/">LinkedIn</a>,
+                or email me <a href="mailto:chauhans.sourabh@gmail.com?Subject=Hello%Sourabh%20-from-website" target="_top">here</a>.
+            </p>
+
+            <p class="text-content">Let's get in touch!</p>
+
+            <p class="text-content">Sourabh Chauhan</p>
+
+            <p class="text-content"><a href="timeline">For more about me, my timeline, read on here.</a></p>
+
+            <br>
+        </div>
+    </div>
+</div>
+{% endblock %}

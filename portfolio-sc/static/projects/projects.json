@@ -1,0 +1,22 @@
+{
+  "projects": [
+    {
+      "name": "VBD Xray Challenge",
+      "link": "vbd",
+      "date": "February 2021",
+      "short": "Worked on Kaggle VBD Challenge to find the 14 X-ray abnormalities bounding boxes in 15000 X-ray images",
+      "status": "complete",
+      "weight": 7,
+      "tags": [
+        "ML",
+        "Kaggle"
+      ],
+      "videos": [
+        "<iframe width=\"1351\" height=\"533\" src=\"https://www.youtube.com/embed/OmDS-FdotNU\" frameborder=\"0\" allow=\"autoplay; encrypted-media\" allowfullscreen></iframe>"
+      ],
+      "photos": [
+        "/static/projects/vbd/vbd-icon-img.jpg"
+      ]
+    }
+  ]
+}
