@@ -5,7 +5,7 @@ This is my personal website.
 
 # Screenshots
 <p float="left">
-  <img src="https://github.com/sourabhsc/portflolio-sc/tree/master/portfolio-sc/screenshotshome.png" width="400">
+  <img src="https://github.com/sourabhsc/portflolio-sc/tree/master/portfolio-sc/screenshots/home.png" width="400">
 </p>
 
 # Technology
