@@ -91,13 +91,12 @@ def project(title):
             'static/%s/%s/%s.html' % (path, selected['link'], selected['link'])), "r", encoding="utf-8").read()
     return render_template('project.html', project=selected)
 
-
+'''
 @app.route('/podcasts/<filename>')
 def podcast(filename):
     if filename.endswith('.mp3'):
         return send_file(get_static_file(f'static/podcasts/{filename}'))
     return abort(404)
-
 
 @app.route('/podcasts/index.xml')
 def podcast_rss():
@@ -109,7 +108,13 @@ def podcasts():
     podcasts = get_static_json("static/podcasts/podcasts.json")
     return render_template('podcasts.html', podcasts=podcasts)
 
+@app.route('/podcasts')
+def podcasts():
+    podcasts = get_static_json("static/podcasts/podcasts.json")
+    return render_template('podcasts.html', podcasts=podcasts)
 
+
+'''
 @app.errorhandler(404)
 def page_not_found(e):
     return render_template('404.html'), 404
