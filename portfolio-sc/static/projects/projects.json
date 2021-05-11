@@ -14,18 +14,14 @@
       "photos": [
         "/static/projects/vbd/vbd-icon-img.jpg"
       ]
-    }
-  ]
-}
+    },
 
-{
-  "projects": [
     {
       "name": "NULIRG",
       "link": "nulirg",
       "date": "2017-2019",
       "short": "Build data reduction and image segemntation pipeline for Hubble Space Telescope galaxies images on a NASA funded project",
-      "status": "publication under process",
+      "status": "complete",
       "weight": 8,
       "tags": [
         "ML",
@@ -37,3 +33,4 @@
     }
   ]
 }
+
