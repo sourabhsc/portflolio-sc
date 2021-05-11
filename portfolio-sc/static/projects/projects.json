@@ -43,13 +43,13 @@
         "HST"
       ],
       "photos": [
-        "/static/projects/phymanim/logo-manim.png"
+        "/static/projects/phymanim/manim-logo.svg"
       ]
     },
 
   {
       "name": "Apni Class Campaign",
-      "link": "https://www.ketto.org/fundraiser/apni-class",
+      "link": "apni-class",
       "date": "2020",
       "short": "Fundraising Campaign for Apni Class",
       "status": "complete",
@@ -101,7 +101,7 @@
         {
       "name": "bikeshare",
       "link": "bikeshare",
-      "date": "2019",
+      "date": "2020",
       "short": "Minnehack2020 hackathon project on a community service to share the bikes",
       "status": "complete",
       "weight": 1,
