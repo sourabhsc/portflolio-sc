@@ -17,25 +17,3 @@
     }
   ]
 }
-
-
-{
-  "projects": [
-    {
-      "name": "HST data reduction pipeline",
-      "link": "nulirg/html/index.html",
-      "date": "July 2018",
-      "short": "Worked on Kaggle VBD Challenge to find the 14 X-ray abnormalities bounding boxes in 15000 X-ray images",
-      "status": "complete",
-      "weight": 6,
-      "tags": [
-        "ML",
-        "Kaggle"
-      ],
-   
-      "photos": [
-        "/static/projects/vbd/vbd-icon-img.jpg"
-      ]
-    }
-  ]
-}
