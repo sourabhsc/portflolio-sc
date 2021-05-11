@@ -1,14 +1,19 @@
 <div>
-    Recursive! My personal space in the great world wide web. I've revised the design time and again, and feel I'm at a
-    stage where I'm quite happy with it now!
+This was a kaggle competition which aims at identifying bounding boxes for 14 different X-ray anamolies using a dataset of 15000 images. Train dataset images had been annotated by 3 radiologists while the test images have been annotated by 5 radiologits. 
+I used <a href= "https://wandb.ai/sourabhsc/vbd-xrays-hyperparam/reports/VinBigData-Chest-X-ray-challenge--Vmlldzo2MDE3OTQ?accessToken=eqwgcochbmqjoy7b2j4ggsusffu3chn6m9b3jgtuq2j3d5ho6lmxez70u0eis9qb"> weights and biases to track my models. </a>
 
-    This is built using:
     <ul>
-        <li>Python Flask</li>
-        <li>A lot of Jinja2 and HTML</li>
-        <li>Hosted on Heroku, because <code>git push heroku master</code></li>
+        <li>Wrote an <a href="https://www.kaggle.com/sourabhchauhan/chest-x-ray-abnormalities-eda-box-fuse-skew"> EDA notebook</a> on Kaggle which gave me a bronze medal on the notebook. </li>
+        <li> Used <code>FasterRCNN</code> from Detectron2 model for bounding box prediction</li>
+        <li> Used Weighted Box fusion to merge boxes i.e. observations from different radiologists. </li>
+        <li> Used Yolov5 for training which works better than the FasterRCNN algorithm </li>
+
+    </ul>
+<span>My Findings:</span>
+<ul>
+    <li> Some anamolies work better on smaller size images and while some work better on larger size imgaes</li>
+    <li> Fusing the boxes did not result in better results</li>
     </ul>
 
-    <span> I've open sourced all of it, and several people have written to me to use the website as a template for
-        their own portfolio!</span>
+    <span> </span>
 </div>
