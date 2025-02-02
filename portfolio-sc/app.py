@@ -2,6 +2,7 @@ import datetime
 import io
 import json
 import os
+from flask import send_from_directory
 
 #from feedgen.feed import FeedGenerator
 from flask import Flask, render_template, request, redirect, Response, send_file, abort
@@ -46,6 +47,10 @@ def projects():
 
 
 
+@app.route('/favicon.ico')
+def favicon():
+    return send_from_directory(os.path.join(app.root_path, 'static/files/'),
+                               'favicon.ico', mimetype='image/vnd.microsoft.icon')
 
 @app.route('/blog')
 def blog():
