@@ -1,100 +1,65 @@
 {% extends "base.html" %}
 
 {% block head %}
-<!-- Original Scripts & Styles -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-<script src='https://cdnjs.cloudflare.com/ajax/libs/typed.js/1.1.1/typed.min.js'></script>
-<link rel="stylesheet" href="{{ url_for('static', filename = 'css/home.css') }}">
-<script src="{{ url_for('static', filename = 'js/home.js') }}"></script>
-
 <!-- Tailwind CSS CDN -->
 <script src="https://cdn.tailwindcss.com"></script>
 <!-- Google Fonts: Inter -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-
 <style>
-    .new-content-container {
-        font-family: 'Inter', sans-serif;
-    }
-    .card-hover {
-        transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-    }
-    .card-hover:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
-    }
+  body { font-family: 'Inter', sans-serif; }
+  .card-hover {
+      transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  }
+  .card-hover:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  }
 </style>
 {% endblock %}
 
 {% block body %}
-<div class="flex flex-col lg:flex-row min-h-screen">
-    <!-- LEFT: dynamic image & terminal (50% width on lg) -->
-    <div class="lg:w-1/2 w-full">
-        <section id="terminal" class="h-full">
-            <div id="terminal-container" class="h-full">
-                <div class="terminal h-full">
-                    <div class="window-title">
-                        <div class="win-buttons">
-                            <a id="close" class="button" href="#"></a>
-                            <a id="min" class="button" href="#"></a>
-                            <a id="max" class="button" href="#"></a>
-                        </div>
-                        <span class="title">sourabhsc-bash</span>
-                    </div>
-                    <div class="message">
+<main class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-16">
+
+    <!-- 🖥️ Terminal at the top -->
+    <div>
+        <div class="bg-black rounded-xl shadow-xl overflow-hidden">
+            <div class="bg-gray-800 px-4 py-2 flex items-center">
+                <span class="w-3 h-3 bg-red-500 rounded-full mr-2"></span>
+                <span class="w-3 h-3 bg-yellow-500 rounded-full mr-2"></span>
+                <span class="w-3 h-3 bg-green-500 rounded-full"></span>
+                <span class="ml-4 text-gray-300 text-sm">sourabhsc-bash</span>
+            </div>
+           <div class="message">
                         <span class='prompt'><span class='user'>sourabhsc</span><span class="at">@</span><span class="path">/home/sourabhsc/</span>><span class="caret">$</span></span>
                         <span class="typed"></span>
                         <form>><span class="caret">$</span>&nbsp;<input type="text" name="response"/></form>
-                    </div>
-                </div>
             </div>
-        </section>
-    </div>
-
-    <!-- RIGHT: content (50% width on lg) -->
-    <div class="lg:w-1/2 w-full overflow-y-auto new-content-container bg-gray-50 text-gray-800">
-        <div class="container mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-10">
-            <!-- Optional: Your photo -->
-            <div class="flex justify-center mb-6">
-                <img src="{{ url_for('static', filename='images/work_evolution.jpg') }}" alt="Your Photo" class="rounded-full w-40 h-40 object-cover shadow-lg">
-            </div>
-
-            <!-- HEADER -->
-            <header class="text-center mb-12">
-                <h1 class="text-4xl sm:text-5xl font-bold text-gray-900">Sourabh Chauhan</h1>
-                <p class="mt-2 text-lg sm:text-xl text-blue-600 font-medium">Senior Data Engineer & Knowledge Graph Specialist</p>
-                <p class="mt-4 text-gray-600">
-                    Helping organizations unlock data value through AI & Knowledge Graphs.
-                </p>
-            </header>
-
-            <!-- Social Icons -->
-            <div class="flex justify-center gap-4 mb-8">
-                <a href="https://github.com/sourabhsc" target="_blank">
-                    <img src="static/images/github.svg" class="w-6 h-6">
-                </a>
-                <a href="https://www.linkedin.com/in/sourabh-singh-chauhan/" target="_blank">
-                    <img src="static/images/linkedin-logo.svg" class="w-6 h-6">
-                </a>
-                <a href="https://twitter.com/chauhanssourabh" target="_blank">
-                    <img src="static/images/twitter.svg" class="w-6 h-6">
-                </a>
-                <a href="https://www.instagram.com/sourabhsc/" target="_blank">
-                    <img src="static/images/insta.svg" class="w-6 h-6">
-                </a>
-            </div>
-
-            <!-- Main content: expertise, services, about, contact -->
-            {% include 'partials/expertise.html' %}
-            {% include 'partials/services.html' %}
-            {% include 'partials/about.html' %}
-            {% include 'partials/contact.html' %}
-         
         </div>
     </div>
-</div>
+
+    <!-- 👤 Header section: Name, title, description, buttons -->
+    <header class="text-center">
+         <div class="flex justify-center mb-6">
+                <img src="{{ url_for('static', filename='images/profile_sourabh.png') }}" alt="Your Photo" class="rounded-full w-40 h-40 object-cover shadow-lg">
+            </div>
+        <h1 class="text-4xl sm:text-5xl font-bold text-gray-900">Sourabh Chauhan</h1>
+        <p class="mt-3 text-lg sm:text-xl text-blue-600 font-medium">Senior Data Engineer & Knowledge Graph Specialist</p>
+        <p class="mt-6 max-w-3xl mx-auto text-base text-gray-600">
+            I help organizations unlock the power of their data through strategic AI implementation. 
+            With a unique background spanning astrophysics research and industry data engineering, 
+            I bring both analytical rigor and practical expertise to complex data challenges.
+        </p>
+        <div class="mt-8 flex justify-center gap-4">
+            <a href="https://github.com/sourabhsc" target="_blank" class="bg-gray-800 text-white font-semibold py-2 px-5 rounded-lg hover:bg-gray-700 transition-colors">
+                GitHub
+            </a>
+            <a href="https://sourabhsc.wordpress.com/physics-projects/" target="_blank" class="bg-blue-600 text-white font-semibold py-2 px-5 rounded-lg hover:bg-blue-500 transition-colors">
+                Portfolio
+            </a>
+        </div>
+    </header>
+
+   
+
+</main>
 {% endblock %}
