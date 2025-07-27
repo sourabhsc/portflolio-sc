@@ -1,104 +1,42 @@
 {% extends "base.html" %}
 
 {% block head %}
+<!-- Original Scripts & Styles -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
-<link type="text/css" rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 <script src='https://cdnjs.cloudflare.com/ajax/libs/typed.js/1.1.1/typed.min.js'></script>
-<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename = 'css/home.css') }}">
-<script type="text/javascript" src="{{ url_for('static', filename = 'js/home.js') }}"></script>
+<link rel="stylesheet" href="{{ url_for('static', filename = 'css/home.css') }}">
+<script src="{{ url_for('static', filename = 'js/home.js') }}"></script>
 
+<!-- Tailwind CSS CDN -->
 <script src="https://cdn.tailwindcss.com"></script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Google Fonts: Inter -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
 <style>
-    /* Ensure Inter font is used for new sections */
     .new-content-container {
         font-family: 'Inter', sans-serif;
     }
-    /* Simple animation for cards on hover */
     .card-hover {
         transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
     }
     .card-hover:hover {
         transform: translateY(-5px);
-        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-    }
-
-    /* !!! NEW STYLES FOR LAYOUT FIX !!! */
-    html, body {
-        height: 100%;
-        margin: 0;
-        overflow: hidden; /* Prevent body scroll if content inside handles its own scroll */
-    }
-
-    .container {
-        display: flex; /* Use flexbox for the main layout */
-        height: 100vh; /* Make the container take full viewport height */
-        width: 100%;
-        padding: 0; /* Remove padding from container to allow wrappers to take full space */
-        margin: 0; /* Remove margin */
-        max-width: none; /* Override Bootstrap's max-width for container */
-    }
-
-    .fixed-wrapper {
-        flex: 0 0 50%; /* Make the terminal section take exactly 50% width */
-        max-width: 50%; /* Ensure it doesn't grow beyond 50% */
-        overflow: hidden; /* Hide overflow if terminal content is too big */
-        /* Assuming home.css or home.js handles the terminal's fixed positioning within this wrapper */
-        position: relative; /* If the terminal itself is absolutely positioned, this wrapper needs to be relative */
-    }
-
-    .scroll-wrapper {
-        flex: 1; /* Make the scrollable content section take the remaining space */
-        overflow-y: auto; /* Enable vertical scrolling for this section */
-        -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
-        padding-left: 1rem; /* Add some padding to separate from the terminal */
-        padding-right: 1rem; /* Add some padding on the right */
-    }
-
-    /* Adjust the terminal styles if necessary to fit within its 50% width */
-    #terminal {
-        height: 100%; /* Ensure terminal takes full height of its wrapper */
-        width: 100%; /* Ensure terminal takes full width of its wrapper */
-        position: absolute; /* Keep it fixed to its parent fixed-wrapper */
-        left: 0;
-        top: 0;
-    }
-
-    /* Responsive adjustments for smaller screens */
-    @media (max-width: 768px) {
-        .container {
-            flex-direction: column; /* Stack elements vertically on small screens */
-            height: auto; /* Allow container to grow vertically */
-        }
-        .fixed-wrapper {
-            flex: 0 0 auto; /* Allow terminal to take its natural height */
-            width: 100%; /* Take full width */
-            max-width: 100%;
-            height: 50vh; /* Give terminal a reasonable height on mobile */
-            position: relative; /* Ensure it stays in flow */
-        }
-        .scroll-wrapper {
-            flex: 1; /* Allow content to take remaining space */
-            width: 100%; /* Take full width */
-            padding-left: 0.5rem;
-            padding-right: 0.5rem;
-        }
+        box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
     }
 </style>
 {% endblock %}
 
 {% block body %}
-<div class="container">
-    <div class="wrapper fixed-wrapper">
-        <section id="terminal">
-            <div id="terminal-container">
-                <div class="terminal">
+<div class="flex flex-col lg:flex-row min-h-screen">
+    <!-- LEFT: dynamic image & terminal (50% width on lg) -->
+    <div class="lg:w-1/2 w-full">
+        <section id="terminal" class="h-full">
+            <div id="terminal-container" class="h-full">
+                <div class="terminal h-full">
                     <div class="window-title">
                         <div class="win-buttons">
                             <a id="close" class="button" href="#"></a>
@@ -108,8 +46,7 @@
                         <span class="title">sourabhsc-bash</span>
                     </div>
                     <div class="message">
-                        <span class='prompt'><span class='user'>sourabhsc</span><span class="at">@</span><span
-                                class="path">/home/sourabhsc/</span>><span class="caret">$</span></span>
+                        <span class='prompt'><span class='user'>sourabhsc</span><span class="at">@</span><span class="path">/home/sourabhsc/</span>><span class="caret">$</span></span>
                         <span class="typed"></span>
                         <form>><span class="caret">$</span>&nbsp;<input type="text" name="response"/></form>
                     </div>
@@ -118,93 +55,42 @@
         </section>
     </div>
 
-    <div class="wrapper scroll-wrapper">
-        <div class="top-text">
-            <p class="text-title desktop-view">Sourabh</p>
-            <p class="text-title desktop-view">Chauhan</p>
-            <p class="text-title mobile-view">Sourabh Chauhan</p>
-            <div class="social-icons">
-                <a target="_blank" href="https://github.com/sourabhsc">
-                    <img class="title-logo" src="static/images/github.svg">
+    <!-- RIGHT: content (50% width on lg) -->
+    <div class="lg:w-1/2 w-full overflow-y-auto new-content-container bg-gray-50 text-gray-800">
+        <div class="container mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-10">
+            <!-- Optional: Your photo -->
+            <div class="flex justify-center mb-6">
+                <img src="{{ url_for('static', filename='images/work_evolution.jpg') }}" alt="Your Photo" class="rounded-full w-40 h-40 object-cover shadow-lg">
+            </div>
+
+            <!-- HEADER -->
+            <header class="text-center mb-12">
+                <h1 class="text-4xl sm:text-5xl font-bold text-gray-900">Sourabh Chauhan</h1>
+                <p class="mt-2 text-lg sm:text-xl text-blue-600 font-medium">Senior Data Engineer & Knowledge Graph Specialist</p>
+                <p class="mt-4 text-gray-600">
+                    Helping organizations unlock data value through AI & Knowledge Graphs.
+                </p>
+            </header>
+
+            <!-- Social Icons -->
+            <div class="flex justify-center gap-4 mb-8">
+                <a href="https://github.com/sourabhsc" target="_blank">
+                    <img src="static/images/github.svg" class="w-6 h-6">
                 </a>
-                <a target="_blank" href="https://www.linkedin.com/in/sourabh-singh-chauhan/">
-                    <img class="title-logo" src="static/images/linkedin-logo.svg">
+                <a href="https://www.linkedin.com/in/sourabh-singh-chauhan/" target="_blank">
+                    <img src="static/images/linkedin-logo.svg" class="w-6 h-6">
                 </a>
-                <a target="_blank" href="https://twitter.com/chauhanssourabh">
-                    <img class="title-logo" src="static/images/twitter.svg">
+                <a href="https://twitter.com/chauhanssourabh" target="_blank">
+                    <img src="static/images/twitter.svg" class="w-6 h-6">
                 </a>
-                <a target="_blank" href="https://www.instagram.com/sourabhsc/">
-                    <img class="title-logo" src="static/images/insta.svg">
+                <a href="https://www.instagram.com/sourabhsc/" target="_blank">
+                    <img src="static/images/insta.svg" class="w-6 h-6">
                 </a>
             </div>
+
+            <!-- Main content: expertise, services, about, contact -->
+         
         </div>
-
-        <div class="new-content-container bg-gray-50 text-gray-800 -mt-8">
-            <div class="container mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
-
-                <header class="text-center mb-16">
-                    <h1 class="text-4xl sm:text-5xl font-bold text-gray-900">Sourabh Chauhan</h1>
-                    <p class="mt-3 text-lg sm:text-xl text-blue-600 font-medium">Senior Data Engineer & Knowledge Graph Specialist</p>
-                    <p class="mt-6 max-w-3xl mx-auto text-base text-gray-600">
-                        I help organizations unlock the power of their data through strategic AI implementation. With a unique background spanning astrophysics research and industry data engineering, I bring both analytical rigor and practical expertise to complex data challenges.
-                    </p>
-                    <div class="mt-8 flex justify-center gap-4">
-                        <a href="https://github.com/sourabhsc" target="_blank" class="bg-gray-800 text-white font-semibold py-2 px-5 rounded-lg hover:bg-gray-700 transition-colors">
-                            GitHub
-                        </a>
-                        <a href="https://sourabhsc.wordpress.com/physics-projects/" target="_blank" class="bg-blue-600 text-white font-semibold py-2 px-5 rounded-lg hover:bg-blue-500 transition-colors">
-                            Portfolio
-                        </a>
-                    </div>
-                    <p class="mt-6 text-sm text-gray-500 max-w-3xl mx-auto">This site also showcases projects from my early career transition (2019) from physics and astrophysics research to the data industry, documenting my journey and key learnings along the way.</p>
-                </header>
-
-                <section id="expertise" class="mb-16">
-                    <h2 class="text-3xl font-bold text-center text-gray-900 mb-10">Technical Expertise</h2>
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        <div class="bg-white p-6 rounded-xl shadow-md"><h3 class="text-xl font-semibold text-gray-800 mb-3">Programming & Tools</h3><p class="text-gray-600">Python, SQL, Apache Spark, Docker, Kubernetes</p></div>
-                        <div class="bg-white p-6 rounded-xl shadow-md"><h3 class="text-xl font-semibold text-gray-800 mb-3">Machine Learning</h3><p class="text-gray-600">Deep Learning, MLOps, Feature Engineering, Model Deployment</p></div>
-                        <div class="bg-white p-6 rounded-xl shadow-md"><h3 class="text-xl font-semibold text-gray-800 mb-3">Data Engineering</h3><p class="text-gray-600">ETL Pipelines, Data Warehousing, Real-time Processing</p></div>
-                        <div class="bg-white p-6 rounded-xl shadow-md"><h3 class="text-xl font-semibold text-gray-800 mb-3">Knowledge Graphs</h3><p class="text-gray-600">Neo4j, Graph Analytics, Semantic Data Modeling</p></div>
-                        <div class="bg-white p-6 rounded-xl shadow-md md:col-span-2 lg:col-span-1"><h3 class="text-xl font-semibold text-gray-800 mb-3">Cloud Platforms</h3><p class="text-gray-600">AWS, Azure, GCP</p></div>
-                    </div>
-                </section>
-
-                <section id="services" class="mb-16">
-                    <h2 class="text-3xl font-bold text-center text-gray-900 mb-10">Services</h2>
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        <div class="bg-white p-6 rounded-xl shadow-lg card-hover"><h3 class="text-xl font-semibold text-blue-600 mb-3">Data Engineering & Architecture</h3><p class="text-gray-600">I design and implement scalable data pipelines that transform raw information into actionable business intelligence, build robust ETL processes, optimize databases, and create insightful knowledge graphs.</p></div>
-                        <div class="bg-white p-6 rounded-xl shadow-lg card-hover"><h3 class="text-xl font-semibold text-blue-600 mb-3">AI Strategy & Implementation</h3><p class="text-gray-600">From proof-of-concept to production, I help organizations develop comprehensive AI strategies aligned with business objectives, translating complex technical solutions into clear business value.</p></div>
-                        <div class="bg-white p-6 rounded-xl shadow-lg card-hover"><h3 class="text-xl font-semibold text-blue-600 mb-3">Research & Development</h3><p class="text-gray-600">With a strong foundation in scientific research, I bring systematic problem-solving to data challenges, ensuring solutions are both innovative and rigorously validated.</p></div>
-                    </div>
-                </section>
-
-                <section id="about" class="bg-white rounded-2xl shadow-xl p-8 sm:p-12 mb-16">
-                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
-                        <div class="lg:col-span-2">
-                            <h2 class="text-3xl font-bold text-gray-900 mb-6">About Me</h2>
-                            <div class="space-y-4 text-gray-600">
-                                <p>I bring a unique perspective to data engineering, combining the analytical precision of astrophysics research with practical industry experience. My transition from studying the cosmos to solving earthly data challenges has equipped me with exceptional problem-solving skills and a deep appreciation for data-driven insights.</p>
-                                <p><strong class="font-semibold text-gray-800">Academic Foundation:</strong> Master’s in Astrophysics from the University of Minnesota, where I developed expertise in handling large-scale, complex datasets and statistical analysis.</p>
-                                <p><strong class="font-semibold text-gray-800">Industry Evolution:</strong> Successfully transitioned to data engineering, where I now apply scientific rigor to business problems, helping organizations make better decisions through data.</p>
-                                <p><strong class="font-semibold text-gray-800">Leadership Experience:</strong> As co-president of the Council of International Graduate Students (CIGS) at the University of Minnesota, I advocated for international student voices and improved academic, professional, and social experiences for our diverse community.</p>
-                            </div>
-                        </div>
-                        <div class="bg-blue-50 p-6 rounded-xl"><h3 class="text-xl font-semibold text-blue-800 mb-3">Personal Interests</h3><p class="text-blue-700">When not working with data, I enjoy following sports, playing badminton, and gardening in my balcony garden.</p></div>
-                    </div>
-                </section>
-
-                <footer class="text-center">
-                    <h2 class="text-2xl font-bold text-gray-900 mb-4">Let's Get In Touch</h2>
-                    <p class="text-gray-600 mb-6">Feel free to reach out via LinkedIn or email.</p>
-                    <div class="flex justify-center gap-6">
-                        <a href="http://in.linkedin.com/in/sourabh-singh-chauhan/" target="_blank" class="text-blue-600 hover:text-blue-800 font-semibold">LinkedIn</a>
-                        <a href="mailto:chauhans.sourabh@gmail.com?Subject=Hello%20Sourabh%20-from-website" class="text-blue-600 hover:text-blue-800 font-semibold">Email Me</a>
-                    </div>
-                    <p class="mt-10 text-sm text-gray-500">&copy; 2024 Sourabh Chauhan. All Rights Reserved.</p>
-                </footer>
-            </div>
-        </div>
-        </div>
+    </div>
 </div>
 {% endblock %}
