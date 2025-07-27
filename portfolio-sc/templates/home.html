@@ -34,32 +34,7 @@
 
 <div class="flex flex-col lg:flex-row min-h-screen">
 
-    <!-- RIGHT: content (50% width on lg) -->
-    <div class="lg:w-1/2 w-full overflow-y-auto new-content-container bg-gray-50 text-gray-800">
 
-        <section id="terminal">
-            <div id="terminal-container" class="h-full">
-                <div class="terminal h-full">
-                    <div class="window-title">
-                        <div class="win-buttons">
-                            <a id="close" class="button" href="#"></a>
-                            <a id="min" class="button" href="#"></a>
-                            <a id="max" class="button" href="#"></a>
-                        </div>
-                        <span class="title">sourabhsc-bash</span>
-                    </div>
-                     <div class="message">
-                        <span class='prompt'><span class='user'>sourabhsc</span><span class="at">@</span><span
-                                class="path">/home/sourabhsc/</span>><span class="caret">$</span></span>
-                        <span class="typed"></span>
-                    </div>
-                </div>
-            </div>
-        </section>
-        {% include 'partials/expertise.html' %}
-        {% include 'partials/services.html' %}
-
-    </div>
     
     <div class="lg:w-1/2 w-full">
 
@@ -100,6 +75,33 @@
 
          
         </div>
+    </div>
+    
+        <!-- RIGHT: content (50% width on lg) -->
+    <div class="lg:w-1/2 w-full">
+
+        <section id="terminal">
+            <div id="terminal-container" class="h-full">
+                <div class="terminal h-full">
+                    <div class="window-title">
+                        <div class="win-buttons">
+                            <a id="close" class="button" href="#"></a>
+                            <a id="min" class="button" href="#"></a>
+                            <a id="max" class="button" href="#"></a>
+                        </div>
+                        <span class="title">sourabhsc-bash</span>
+                    </div>
+                     <div class="message">
+                        <span class='prompt'><span class='user'>sourabhsc</span><span class="at">@</span><span
+                                class="path">/home/sourabhsc/</span>><span class="caret">$</span></span>
+                        <span class="typed"></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        {% include 'partials/expertise.html' %}
+        {% include 'partials/services.html' %}
+
     </div>
 </div>
 {% endblock %}
