@@ -51,11 +51,24 @@ def generate():
     # username/repository
     repository = os.environ.get("GITHUB_REPOSITORY", "")
 
-    if "/" in repository:
-        repo_name = repository.split("/", 1)[1]
-        script_name = f"/{repo_name}"
-    else:
+    if repository.endswith(".github.io"):
+        # GitHub user/organization site
+        # Example:
+        # sourabhsc/sourabhsc.github.io
+        # URL:
+        # https://sourabhsc.github.io/
         script_name = ""
+    else:
+        # GitHub project site
+        # Example:
+        # sourabhsc/portflolio-sc
+        # URL:
+        # https://sourabhsc.github.io/portflolio-sc/
+        if "/" in repository:
+            repo_name = repository.split("/", 1)[1]
+            script_name = f"/{repo_name}"
+        else:
+            script_name = ""
 
     with app.test_client() as client:
 
