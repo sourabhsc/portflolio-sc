@@ -14,8 +14,7 @@ def clean_dist():
 
     DIST.mkdir(parents=True)
 
-
-def generate_page(client, route, output_path, script_name=""):
+def generate_page(client, route, output_path, script_name="", expected_status=200):
     response = client.get(
         route,
         environ_overrides={
@@ -23,17 +22,21 @@ def generate_page(client, route, output_path, script_name=""):
         }
     )
 
-    if response.status_code != 200:
+    if response.status_code != expected_status:
         raise RuntimeError(
             f"Failed to generate {route}: "
-            f"HTTP {response.status_code}"
+            f"expected HTTP {expected_status}, "
+            f"got HTTP {response.status_code}"
         )
 
     output = DIST / output_path
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_bytes(response.data)
 
-    print(f"Generated {route} -> {output}")
+    print(
+        f"Generated {route} -> {output} "
+        f"(HTTP {response.status_code})"
+    )
 
 
 def generate():
@@ -148,7 +151,8 @@ def generate():
             client,
             "/does-not-exist",
             "404.html",
-            script_name
+            script_name,
+            expected_status=404
         )
 
     print()
