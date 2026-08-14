@@ -57,12 +57,6 @@ def blog():
     return redirect("http://sourabhsc.wordpress.com/blogs/", code=302)
 
 
-@app.route('/experiences')
-def experiences():
-    experiences = get_static_json("static/experiences/experiences.json")['experiences']
-    experiences.sort(key=order_projects_by_weight, reverse=True)
-    return render_template('projects.html', projects=experiences, tag=None)
-
 
 def order_projects_by_weight(projects):
     try:
@@ -74,10 +68,9 @@ def order_projects_by_weight(projects):
 @app.route('/projects/<title>')
 def project(title):
     projects = get_static_json("static/projects/projects.json")['projects']
-    experiences = get_static_json("static/experiences/experiences.json")['experiences']
 
     in_project = next((p for p in projects if p['link'] == title), None)
-    in_exp = next((p for p in experiences if p['link'] == title), None)
+    in_exp = None
 
     if in_project is None and in_exp is None:
         return render_template('404.html'), 404
@@ -91,7 +84,7 @@ def project(title):
 
     # load html if the json file doesn't contain a description
     if 'description' not in selected:
-        path = "experiences" if in_exp is not None else "projects"
+        path = "projects"
         selected['description'] = io.open(get_static_file(
             'static/%s/%s/%s.html' % (path, selected['link'], selected['link'])), "r", encoding="utf-8").read()
     return render_template('project.html', project=selected)

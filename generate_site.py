@@ -88,28 +88,19 @@ def generate():
             script_name
         )
 
-        generate_page(
-            client,
-            "/experiences",
-            "experiences/index.html",
-            script_name
-        )
 
         # --------------------------------
-        # Individual projects/experiences
+        # Individual projects
         # --------------------------------
 
         projects = get_static_json(
             "static/projects/projects.json"
         )["projects"]
 
-        experiences = get_static_json(
-            "static/experiences/experiences.json"
-        )["experiences"]
 
         generated = set()
 
-        for item in projects + experiences:
+        for item in projects :
             title = item.get("link")
 
             if not title:

@@ -19,7 +19,7 @@ You're free to use this for your own personal portfolio; but please do write to 
  
  - change the static content wherever it is to suit your work.
  - **NOTE**: Hard-refresh your browser (ctrl-shift-r) when you update the js files #19
- - change the `experiences.json` and `projects.json` files with your work and projects. 
+ - change the `projects.json` files with your work and projects. 
  - send an email to chauhan.sourabh@gmail.com
 
 [The websie is inspired by this webpage](http://rish.space)
