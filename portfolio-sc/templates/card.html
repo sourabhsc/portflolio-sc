@@ -4,7 +4,7 @@
             {% if 'photos' in project %}
             <img class="card-image activator" src={{project['photos'][0]}}/>
             {% else %}
-            <img class="card-image activator" src="/static/images/projectx.png/">
+            <img class="card-image activator" src="{{ url_for('static', filename='images/projectx.png') }}">
             {% endif %}
         </div>
         <div class="card-content activator">
@@ -12,7 +12,7 @@
                 <div class="md-chips container-inner">
                     {% for tag in project['tags'] %}
                     <div class="md-chip md-chip-clickable"><a class="md-chip-link"
-                                                              href="/projects?tags={{tag}}">{{tag}}</a>
+                                                              href="{{ url_for('projects') }}?tags={{ tag }}">{{tag}}</a>
                     </div>
                     {% endfor %}
                 </div>
@@ -24,7 +24,7 @@
                 <i class="material-icons right activator">more_vert</i>
             </div>
             <div>
-                <span><a href="/projects/{{project['link']}}">Read More</a></span>
+                <span><a href="{{ url_for('project', title=project['link']) }}">Read More</a></span>
                 {% if 'github' in project %}
                 <span><a class="github" href={{project['github']}}> | Github</a></span>
                 {% endif %}
@@ -41,7 +41,7 @@
                     class="material-icons right">close</i></span>
             <div><span class="status">{{project['date']}}</span></div>
             <p>{{project['short']}}</p>
-            <span><a href="/projects/{{project['link']}}">Read More</a></span>
+            <span><a href="{{ url_for('project', title=project['link']) }}">Read More</a></span>
         </div>
     </div>
 </div>
