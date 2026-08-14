@@ -1,4 +1,4 @@
-# http://sourabhsc.herokuapp.com/
+# http://sourabhsc.github.io/
 ----
 
 This is my personal website. 
