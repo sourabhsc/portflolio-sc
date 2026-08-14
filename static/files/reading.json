@@ -1,0 +1,57 @@
+[
+  {
+    "year": "To Read",
+    "books": [
+      {
+        "name": " "
+      }
+    ]
+  },
+  {
+    "year": "2021",
+    "books": [
+      {
+        "name": "Cracking the coding interview ",
+        "review": "Nice book to brush up your coding basics.",
+        "star": true
+      },
+      {
+        "name": "Weapons of Math destruction by Cathy O'Neil",
+        "review": "A nice book for ethics in AI and explainable AI, (currently reading) ",
+        "star": true
+
+      },
+      {
+        "name": "Business Model You",
+        "review": "A quite informative book for reinventing your career",
+        "star": false
+
+      },
+      {
+        "name": "StoryTellingWithData",
+        "review": "Quick primer for data visualization tools",
+        "star": false
+
+      },
+
+       {
+        "name": "Hands-On Machine Learning with SciKit-Learn & TensorFlow by Aurelien Geron",
+        "review": " Beginner book for Machine Learning",
+        "star": false
+
+      }
+    ]
+  },
+  
+  {
+    "year": "Past Favorites",
+    "books": [
+      {
+        "name": "Emotional Intelligence ",
+        "review": "",
+        "star": true
+      }
+    ]
+  }
+  
+]

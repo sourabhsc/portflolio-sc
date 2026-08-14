@@ -1,0 +1,237 @@
+body {
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin: 0;
+  padding-top: 40px;
+}
+/* Make sure contact section is centered and at bottom */
+.contact-section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: auto;        /* push to bottom in flex column */
+  padding: 40px 20px;      /* some spacing */
+  background: #f9f9f9;     /* light background to separate */
+  text-align: center;
+}
+
+.contact-section h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+  color: #262626;
+}
+
+.contact-section p {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.contact-section a {
+  color: #808080;
+  text-decoration: none;
+}
+
+.contact-section a:hover {
+  color: #000;
+  text-decoration: underline;
+}
+
+.fixed-wrapper {
+  position: static; /* remove fixed positioning */
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.wrapper {
+  width: 100%;
+  max-width: 1200px;
+  padding: 20px;
+}
+
+.top-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.top-text p {
+  font-size: 80px;
+  font-family: 'Roboto', sans-serif;
+  margin: 20px 0;
+  color: #262626; /* dark text color */
+}
+
+.middle-text {
+  margin-top: 44px;
+}
+
+.scroll-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+ul li a {
+  color: #808080;
+  text-decoration: none;
+}
+
+.title-logo {
+  height: 24px;
+  width: 24px;
+  margin: 0 12px 0 2px;
+  opacity: 0.4;
+}
+
+.title-logo:hover {
+  opacity: 0.8;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+/* Terminal styles */
+#terminal .terminal {
+  position: relative;
+  background: rgba(38, 38, 38, 0.8);
+  width: 90%;
+  max-width: 1000px;
+  height: 400px;
+  border-radius: 8px;
+  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.55);
+  margin: 0 auto 40px auto;
+}
+
+#terminal .terminal .window-title {
+  background: linear-gradient(top, #dedede, #c0c0c0);
+  width: calc(100% - 16px);
+  height: 8%;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  padding: 1px 8px;
+}
+
+#terminal .terminal .window-title .win-buttons {
+  float: left;
+  margin: 0;
+  width: 15%;
+}
+
+#terminal .terminal .window-title .button {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border: 0.5px solid;
+  border-radius: 100px;
+  margin: 3px 2px 3px 0;
+}
+
+#close { background: #e25544; border-color: #d84b3a; }
+#min   { background: #f5b640; border-color: #e0a12b; }
+#max   { background: #7cb058; border-color: #6fa44b; }
+
+#terminal .terminal .title {
+  color: rgba(255, 255, 255, 0.65);
+  letter-spacing: 0.06em;
+  font-weight: 400;
+  position: relative;
+  left: -43px;
+}
+
+#terminal .message {
+  color: rgba(255, 255, 255, 0.75);
+  font-family: "Source Code Pro", monospace;
+  width: 95%;
+  margin: auto;
+  padding-top: 1.5vh;
+}
+
+#terminal .message span {
+  font-size: 90%;
+  font-weight: 300;
+  line-height: 1.5;
+  letter-spacing: 0.045em;
+  margin-bottom: 1em;
+}
+
+#terminal .message span a {
+  border-bottom: 1px dotted rgba(255, 255, 255, 0.75);
+}
+
+#terminal .prompt {
+  font-size: 98%;
+}
+
+#terminal .user {
+  color: #ea7e7d;
+  letter-spacing: 0.002em;
+  padding-right: 3px;
+}
+
+#terminal .at {
+  color: #e8d880;
+  padding-right: 2px;
+}
+
+#terminal .path {
+  color: #7ecdcb;
+  letter-spacing: 0.002em;
+  padding-right: 2px;
+}
+
+#terminal .caret {
+  color: #50cd70;
+}
+
+#terminal a {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+}
+
+#terminal a:hover {
+  color: rgba(255, 255, 255, 0.9);
+  border-bottom: 1px dotted rgba(255, 255, 255, 0.9);
+}
+
+/* Responsive tweaks */
+@media only screen and (max-width: 1094px) {
+  .wrapper {
+    padding: 10px;
+  }
+  .top-text p {
+    font-size: 70px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  #terminal .terminal {
+    height: 220px;
+  }
+  .top-text p {
+    font-size: 40px;
+  }
+}

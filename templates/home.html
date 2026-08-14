@@ -1,0 +1,111 @@
+{% extends "base.html" %}
+
+{% block head %}
+<!-- Original Scripts & Styles -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<script src='https://cdnjs.cloudflare.com/ajax/libs/typed.js/1.1.1/typed.min.js'></script>
+<link rel="stylesheet" href="{{ url_for('static', filename = 'css/home.css') }}">
+<script src="{{ url_for('static', filename = 'js/home.js') }}"></script>
+
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com"></script>
+<!-- Google Fonts: Inter -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+    .new-content-container {
+        font-family: 'Inter', sans-serif;
+    }
+    .card-hover {
+        transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    }
+    .card-hover:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+    }
+</style>
+{% endblock %}
+
+{% block body %}
+
+<div class="flex flex-col lg:flex-row min-h-screen">
+
+
+    
+    <div class="lg:w-1/2 w-full">
+
+    <!-- LEFT: dynamic image & terminal (50% width on lg) -->
+        <div class="container mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-10">
+            <!-- Optional: Your photo -->
+            <div class="flex justify-center mb-6">
+                <img src="{{ url_for('static', filename='images/profile_sourabh.png') }}" alt="Your Photo" class="rounded-full w-40 h-40 object-cover shadow-lg">
+            </div>
+
+            <!-- HEADER -->
+            <header class="text-center mb-12">
+                <h1 class="text-4xl sm:text-5xl font-bold text-gray-900">Sourabh Chauhan</h1>
+                <p class="mt-2 text-lg sm:text-xl text-blue-600 font-medium">Senior Data Engineer & Knowledge Graph Specialist</p>
+                <p class="mt-4 text-gray-600">
+                    Helping organizations unlock data value through AI & Knowledge Graphs.
+                </p>
+            </header>
+            <div class="mt-8 flex justify-center gap-4">
+                <a href="https://github.com/sourabhsc" target="_blank" class="bg-gray-800 text-white font-semibold py-2 px-5 rounded-lg hover:bg-gray-700 transition-colors">
+                    GitHub
+                </a>
+                <a href="https://sourabhsc.wordpress.com" target="_blank" class="bg-blue-600 text-white font-semibold py-2 px-5 rounded-lg hover:bg-blue-500 transition-colors">
+                    Portfolio
+                </a>
+                <a href="https://www.linkedin.com/in/sourabh-singh-chauhan/" target="_blank" class="bg-gray-800 text-white font-semibold py-2 px-5 rounded-lg hover:bg-gray-700 transition-colors">
+                    LinkedIn
+                </a>
+            </div>
+
+           
+
+            <!-- Main content: expertise, services, about, contact -->
+            {% include 'partials/about.html' %}
+            {% include 'partials/contact.html' %}
+
+
+         
+        </div>
+    </div>
+    
+        <!-- RIGHT: content (50% width on lg) -->
+    <div class="lg:w-1/2 w-full">
+
+        <section id="terminal">
+            <div id="terminal-container" class="h-full">
+                <div class="terminal h-full">
+                    <div class="window-title">
+                        <div class="win-buttons">
+                            <a id="close" class="button" href="#"></a>
+                            <a id="min" class="button" href="#"></a>
+                            <a id="max" class="button" href="#"></a>
+                        </div>
+                        <span class="title">sourabhsc-bash</span>
+                    </div>
+                     <div class="message">
+                        <span class='prompt'><span class='user'>sourabhsc</span><span class="at">@</span><span
+                                class="path">/home/sourabhsc/</span>><span class="caret">$</span></span>
+                        <span class="typed"></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        {% include 'partials/services.html' %}
+        {% include 'partials/expertise.html' %}
+
+
+    </div>
+    
+
+
+  
+</div>
+{% endblock %}
